@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TaskGenie
 
-## Getting Started
+TaskGenie is an innovative and collaborative project management tool crafted to streamline workflow organization and amplify productivity. Much akin to Trello, it offers a flexible platform for teams and individuals to handle tasks, structure projects, and monitor progress in real-time.
 
-First, run the development server:
+![image](./public/board.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+TaskGenie is built using modern web technologies and follows a scalable and efficient web architecture, leveraging technologies like Next.js 14, Server Actions, React, Prisma, Stripe, Tailwind and PostgreSQL.
+
+## Key Features
+
++ **Auth:** Secure authentication system for users
++ **Organizations / Workspaces:** Create and manage workspaces for teams
++ **Board Creation:** Easily create boards to manage projects
++ **Unsplash API Integration:** Access random beautiful cover images for boards
++ **Activity Log:** Track actions and changes within the entire organization
++ **Board Operations:** Rename, delete, and manage boards within the organization
++ **List Management:** Create, rename, delete, reorder, and copy lists within boards
++ **Card Operations:** Create, manage, and organize cards within lists
++ **Card Details:** Add descriptions, rename, delete, and track card activity
++ **Organization Limit:** Set board limits for each organization
++ **Stripe Subscription:** Enable subscription for unlimited boards per organization
++ **Landing Page:** Engaging landing page for users
++ **Data Management:** PostgreSQL DB with Prisma ORM
++ **UI Frameworks:** shadcnUI & TailwindCSS
+
+### Prerequisites
+
+**Node version v20.10.0**
+
+### Cloning the repository
+
+```shell
+git clone https://github.com/swoji/robo.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install packages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Setup .env file
 
-## Learn More
+```js
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
 
-To learn more about Next.js, take a look at the following resources:
+DATABASE_URL=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+NEXT_PUBLIC_UNSPLASH_ACCESS_KEY=
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+STRIPE_API_KEY=
 
-## Deploy on Vercel
+NEXT_PUBLIC_APP_URL=
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+STRIPE_WEBHOOK_SECRET=
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Setup Prisma
+
+Add PostgreSQL DB (You can use hosting of choice e.g PlanetScale, Supabase)
+
+```shell
+npx prisma generate
+npx prisma db push
+
+```
+
+### Available commands
+
+Running commands with npm `npm run [command]`
+
+| command         | description                              |
+| :-------------- | :--------------------------------------- |
+| `dev`           | Starts a development instance of the app |
+
+### Usage
+
++ Register for an account or log in if you already have one.
++ Create a new board for your project.
++ Add lists within the board to represent different stages or categories.
++ Create cards within lists, detailing tasks or items to be done.
++ Drag and drop cards between lists to update their status.
++ Invite team members to collaborate on the board by adding them as members.
++ Utilize comments, due dates, and other features for effective progress management.
+
+### Contributing
+
++ We welcome contributions! To contribute to TaskGenie, follow these steps:
+
+  + Fork this repository.
+  + Create a new branch: git checkout -b feature/new-feature
+  + Make your changes and commit them: git commit -m 'Add new feature'
+  + Push to the branch: git push origin feature/new-feature
+  + Submit a pull request detailing your changes.
