@@ -46,7 +46,7 @@ const MarketingPage = () => {
                 "text-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mx-auto",
                 textFont.className,
                 )}>
-                Collaborate seamlessly, manage projects effortlessly, and elevate productivity levels. Whether in bustling corporate towers or the comfort of a home office, harness your team&apos;s distinct workflow dynamics effortlessly with Flowboard.
+                Collaborate seamlessly, manage projects effortlessly, and elevate productivity levels. Whether in bustling corporate towers or the comfort of a home office, harness your team&apos;s distinct workflow dynamics effortlessly with TaskGenie.
             </div>
             <Button className="mt-6" size="lg" asChild>
                 <Link href="/sign-up">
