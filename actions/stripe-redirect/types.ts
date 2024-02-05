@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { ActionState } from "@/lib/create-safe-action";
+import { ActionState } from "@/create-safe-action";
 
 import { StripeRedirect } from "./schema";
 

@@ -4,8 +4,8 @@ import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
-import  { db } from "@/lib/db";
-import { createSafeAction } from "@/lib/create-safe-action";
+import { db } from "@/lib/db";
+import { createSafeAction } from "@/create-safe-action";
 import { createAuditLog } from "@/lib/create-audit-log";
 
 import { CopyList } from "./schema";
@@ -50,7 +50,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     const newOrder = lastList ? lastList.order + 1 : 1;
 
     list = await db.list.create({
-      data : {
+      data: {
         boardId: listToCopy.boardId,
         title: `${listToCopy.title} - Copy`,
         order: newOrder,
@@ -74,11 +74,11 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       entityId: list.id,
       entityType: ENTITY_TYPE.LIST,
       action: ACTION.CREATE,
-    })
+    });
   } catch (error) {
     return {
-      error: "Failed to copy."
-    }
+      error: "Failed to copy.",
+    };
   }
 
   revalidatePath(`/organization/${boardId}`);

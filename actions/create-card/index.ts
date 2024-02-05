@@ -4,8 +4,8 @@ import { auth } from "@clerk/nextjs";
 import { revalidatePath } from "next/cache";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
-import  { db } from "@/lib/db";
-import { createSafeAction } from "@/lib/create-safe-action";
+import { db } from "@/lib/db";
+import { createSafeAction } from "@/create-safe-action";
 import { createAuditLog } from "@/lib/create-audit-log";
 
 import { CreateCard } from "./schema";
@@ -42,7 +42,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     const lastCard = await db.card.findFirst({
       where: { listId },
       orderBy: { order: "desc" },
-      select: { order: true }
+      select: { order: true },
     });
 
     const newOrder = lastCard ? lastCard.order + 1 : 1;
@@ -63,8 +63,8 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     });
   } catch (error) {
     return {
-      error: "Failed to create."
-    }
+      error: "Failed to create.",
+    };
   }
 
   revalidatePath(`/board/${boardId}`);

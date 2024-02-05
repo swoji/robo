@@ -5,8 +5,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { ACTION, ENTITY_TYPE } from "@prisma/client";
 
-import  { db } from "@/lib/db";
-import { createSafeAction } from "@/lib/create-safe-action";
+import { db } from "@/lib/db";
+import { createSafeAction } from "@/create-safe-action";
 import { createAuditLog } from "@/lib/create-audit-log";
 
 import { DeleteBoard } from "./schema";
@@ -45,11 +45,11 @@ const handler = async (data: InputType): Promise<ReturnType> => {
       entityId: board.id,
       entityType: ENTITY_TYPE.BOARD,
       action: ACTION.DELETE,
-    })
+    });
   } catch (error) {
     return {
-      error: "Failed to delete."
-    }
+      error: "Failed to delete.",
+    };
   }
 
   revalidatePath(`/organization/${orgId}`);
